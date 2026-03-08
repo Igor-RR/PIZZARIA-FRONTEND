@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: lightgoldenrodyellow;
+}
+
+main{
+    flex:1;
+}
+
+ul {
+    list-style-type: none; /* Remove o ponto */
+    padding: 0;            /* Remove o recuo interno */
+    margin: 0;             /* Remove a margem externa */
+}
+
+
+#hero{
+
+    position: relative;
+
+    display:flex;
+
+    /* Espaçamento entre itens*/
+    gap:50px;
+
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    
+    background-image:url('hero.jpg');
+    height: 30vh;
+    
+    /* Atributo para cobrir toda a imagem*/
+    background-size: cover;
+
+    /* Centraliza a imagem */
+    background-position: 50% 70%;
+
+    /* Impede que a imagem se repita caso seja menor que a tela */
+     background-repeat: no-repeat;
+
+    border: solid 2px darkgreen;
+
+}
+
+/*Cria uma camada acima do hero, para escurecer a imagem*/
+#hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background: rgba(0,0,0,0.3);
+}
+
+#hero *{
+    position: relative;
+    z-index:1;
+}
+
+/*Devemos digitar img depois de .logo para acessar a imagem
+dentro da div*/
+.logo img{
+    
+    width: 100%;
+    height: auto;
+}
+
+.logo{
+    flex-shrink: 0;
+    width: 350px;
+    height: 300px;
+    padding: 40px;
+}
+
+#frase-slogan{
+    color:rgb(250, 205, 125);
+    text-shadow:10px 10px 10px rgba(0,0,0,0.9) ;
+
+    font-family: 'Verdana';
+    max-width: 600px;
+    max-height: 100px;
+    padding: 10px;
+
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-decoration: solid;
+
+
+}
+
+main{
+    text-align: center;
+}
+
+
+#barra-navegacao{
+
+    max-width:250px;
+    max-height: 50px;
+    padding: 10px;
+
+    margin-top: -150px;
+    text-align: right;
+
+    display: flex;
+    gap: 10px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-botao{
+    width: 80px;
+    height: 40px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 20%;
+
+    color: black;
+    font-size: 16px;
+    text-decoration: solid;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-card{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    max-height: 500px;
+    gap: 80px;
+    margin-top: 50px;
+    align-items: stretch;
+
+}
+
+.card{
+
+    background-color: orange;
+    
+    
+    padding: 10px;
+
+    width:250px;
+
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition: transform 0.3s,box-shadow 0.5s;
+
+}
+
+.card img{
+    border: solid 2px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.texto-card{
+    min-height: 80px;
+    text-align: center;
+    overflow: hidden;
+    word-wrap:break-word;
+    max-width: 150px;
+}
+
+/*Hover -> Efeito quando o cursor é passado sobre o elemento*/
+
+.card:hover{
+    transform: rotateY(-50px),rotateX(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.preco{
+    margin-top:auto;
+    font-weight: bold;
+}
+
+.pedir{
+    background-color: lightgoldenrodyellow;
+    border-radius: 20%;
+}
+
+footer{
+    margin-top: 40px;
+    border: solid 2px darkgreen;
+    background-color: orange;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
