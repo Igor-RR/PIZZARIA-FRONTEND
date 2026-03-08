@@ -141,6 +141,15 @@ main{
     justify-content: center;
 }
 
+#container-main{
+
+    background-color: rgb(255, 220, 158);
+    padding:20px;
+    margin: 15px;
+    border-radius: 2%;
+
+}
+
 .container-card{
     display: flex;
     position: relative;
@@ -156,7 +165,7 @@ main{
 .card{
 
     background-color: orange;
-    
+    border: solid 1px;
     
     padding: 10px;
 
