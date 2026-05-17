@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Pizzaria</title>
-    <link rel="icon" href="Logo-pizarria.png">
+    <link rel="icon" href="assets/Logo-pizarria.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div id="hero">
             <div class="logo">
-                <img src="Logo-pizarria.png">
+                <img src="assets/Logo-pizarria.png">
             </div>
             <div id="frase-slogan">
                 <h1>"É assim que se faz uma pizza MARCELLO!"</h1>
             </div>
-            <nav id="barra-navegacao">
-                <a class='nav-botao' href="inicio.html">Home</a>
-                <a class='nav-botao' href="Menu.html">Menu</a>
-                <a class='nav-botao' href="Contact.html">Contact</a>
-            </nav>
         </div>
+        <nav id="barra-navegacao">
+            <a class='nav-botao' href="index.html">Home</a>
+            <a class='nav-botao' href="Menu.html">Menu</a>
+            <a class='nav-botao' href="contato.html">Contact</a>
+            <div id='carrinho'>
+                <img src="assets/carrinho-logo.png">
+            </div>
+        </nav>
     </header>
     
     <main>
@@ -28,7 +31,7 @@
             <h2> Navegue pelos cards e escolha já o seu sabor!</h2>
             <ul class="container-card">
                 <li class="card">
-                    <img src="calabresa.jpeg" alt="Pizza de calabresa">
+                    <img src="assets/calabresa.jpeg" alt="Pizza de calabresa">
                     <h2 class="titulo-card">Pizza de calabresa</h2>
                     <div class="texto-card">
                         <p>Calabresa, cebola, tomate, milho, ervilha, catupiry, azeitona</p>
@@ -38,7 +41,7 @@
                     <button class="pedir">Pedir</button>
                 </li>
                 <li class="card">
-                    <img src="4-queijos.jpeg" alt="Pizza de 4 queijos">
+                    <img src="assets/4-queijos.jpeg" alt="Pizza de 4 queijos">
                     <h2 class="titulo-card">Pizza de 4 queijos</h2>
                     <div class="texto-card">
                         <p id="descricao-4-queijos">Queijo paremsão, queijo mussarela, queijo gorgonzola, queijo minas frescal, cebola, tomate, milho, ervilha, catupiry, azeitona</p>
@@ -48,13 +51,13 @@
                     <button class="pedir">Pedir</button>
                 </li>
                 <li class="card">
-                    <img src="frango.jpeg" alt="Pizza de frango">
+                    <img src="assets/frango.jpeg" alt="Pizza de frango">
                     <h2 class="titulo-card">Pizza de frango</h2>
                     <div class="texto-card">
                         <p>Frango, cebola, tomate, milho, ervilha, catupiry, azeitona</p>
                         <br>
                     </div>
-                    <p class='preco'>RS 49,50</p>
+                    <p class='preco'>R$ 49,50</p>
                     <button class="pedir">Pedir</button>
                 </li>
             </ul>
@@ -64,7 +67,21 @@
         <p>© 2026 MAMAMIA MARCELO</p>
     </footer>
 
+    <div class="modal">
+        <div class="content">
+                <h1>Lista de pedidos</h1>
+                <ul id="lista-pedidos"></ul>
+                <div id="container-botoes-modal">
+                    <h2>Total a pagar: <span id="total-preco"></span></h2>
+                    <h2>Quantidade total: <span id="total-quantidade"></span></h2>
+                    <button id="botao-modal-fechar">Comprar mais</button>
+                    <button id="botao-modal-finalizar">Finalizar pedido</button>
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
-
-

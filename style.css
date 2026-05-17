@@ -1,224 +1,434 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
 *{
     box-sizing: border-box;
-
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: lightgoldenrodyellow;
 }
 
-main{
-    flex:1;
+main {
+    flex: 1;
+    text-align: center;
 }
 
 ul {
-    list-style-type: none; /* Remove o ponto */
-    padding: 0;            /* Remove o recuo interno */
-    margin: 0;             /* Remove a margem externa */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
+/* Proteção global contra distorção de imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-#hero{
-
+/* =========================
+   HEADER & HERO
+========================= */
+header {
     position: relative;
+}
 
-    display:flex;
-
-    /* Espaçamento entre itens*/
-    gap:50px;
-
+#hero {
+    position: relative;
+    display: flex;
+    gap: 50px;
     align-items: center;
     justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    
-    background-image:url('hero.jpg');
-    height: 30vh;
-    
-    /* Atributo para cobrir toda a imagem*/
+    padding: 10px;
+    background-image: url('assets/hero.jpg');
+    min-height: 300px;
     background-size: cover;
-
-    /* Centraliza a imagem */
-    background-position: 50% 70%;
-
-    /* Impede que a imagem se repita caso seja menor que a tela */
-     background-repeat: no-repeat;
-
-    border: solid 2px darkgreen;
-
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: solid 4px darkgreen;
+    overflow: hidden;
 }
 
-/*Cria uma camada acima do hero, para escurecer a imagem*/
-#hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background: rgba(0,0,0,0.3);
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
 }
 
-#hero *{
+#hero * {
     position: relative;
-    z-index:1;
+    z-index: 1;
 }
 
-/*Devemos digitar img depois de .logo para acessar a imagem
-dentro da div*/
-.logo img{
-    
-    width: 100%;
-    height: auto;
-}
-
-.logo{
+.logo {
     flex-shrink: 0;
     width: 350px;
-    height: 300px;
     padding: 40px;
 }
 
-#frase-slogan{
-    color:rgb(250, 205, 125);
-    text-shadow:10px 10px 10px rgba(0,0,0,0.9) ;
-
-    font-family: 'Verdana';
+#frase-slogan {
+    color: rgb(250, 205, 125);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+    font-family: 'Verdana', sans-serif;
     max-width: 600px;
-    max-height: 100px;
     padding: 10px;
-
     display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    text-decoration: solid;
-
-
-}
-
-main{
-    text-align: center;
-}
-
-
-#barra-navegacao{
-
-    max-width:250px;
-    max-height: 50px;
-    padding: 10px;
-
-    margin-top: -150px;
-    text-align: right;
-
-    display: flex;
-    gap: 10px;
-
     align-items: center;
     justify-content: center;
 }
 
-.nav-botao{
-    width: 80px;
+/* =========================
+   NAVEGAÇÃO
+========================= */
+#barra-navegacao {
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-botao {
+    width: 90px;
     height: 40px;
     background-color: lightgoldenrodyellow;
-    border-radius: 20%;
-
+    border-radius: 8px;
     color: black;
-    font-size: 16px;
-    text-decoration: solid;
-    
+    font-weight: bold;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-#container-main{
-
-    background-color: rgb(255, 220, 158);
-    padding:20px;
-    margin: 15px;
-    border-radius: 2%;
-
-}
-
-.container-card{
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    max-height: 500px;
-    gap: 80px;
-    margin-top: 50px;
-    align-items: stretch;
-
-}
-
-.card{
-
+.nav-botao:hover {
     background-color: orange;
-    border: solid 1px;
-    
-    padding: 10px;
+    color: white;
+}
 
-    width:250px;
+#carrinho {
+    width: 60px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-    
+#carrinho:hover {
+    transform: scale(1.1);
+}
+
+#carrinho img {
+    width: 30px;
+}
+
+/* =========================
+   CARDS DA PÁGINA PRINCIPAL
+========================= */
+#container-main {
+    background-color: rgb(255, 220, 158);
+    padding: 40px 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.container-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: lightgoldenrodyellow;
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    transition: transform 0.3s,box-shadow 0.5s;
-
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
-.card img{
-    border: solid 2px;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card img {
+    border: solid 4px orange;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
-.texto-card{
-    min-height: 80px;
-    text-align: center;
-    overflow: hidden;
-    word-wrap:break-word;
-    max-width: 150px;
+.titulo-card {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    color: #333;
 }
 
-/*Hover -> Efeito quando o cursor é passado sobre o elemento*/
-
-.card:hover{
-    transform: rotateY(-50px),rotateX(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+.texto-card {
+    min-height: 60px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
 }
 
-.preco{
-    margin-top:auto;
+.preco {
+    font-size: 1.3rem;
+    color: darkgreen;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.pedir {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+.pedir:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* =========================
+   MODAL DO CARRINHO
+========================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal .content {
+    background-color: lightgoldenrodyellow;
+    margin: 5% auto;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+#lista-pedidos {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 5px;
+    margin: 20px 0;
+}
+
+/* Estilização de cada ITEM dentro do carrinho */
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 6px solid orange;
+}
+
+.item-carrinho span {
+    flex-grow: 1;
+    font-weight: 500;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* BOTÃO EXCLUIR (A imagem) */
+.item-carrinho img {
+    width: 30px !important;
+    height: 30px !important;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #fff1f1;
+    transition: 0.3s;
+    margin-left: 15px;
+}
+
+.item-carrinho img:hover {
+    background-color: #ff4444;
+    filter: brightness(0) invert(1); /* Deixa o ícone branco no hover */
+}
+
+/* =========================
+   RODAPÉ DO MODAL (TOTAIS)
+========================= */
+#container-botoes-modal {
+    border-top: 2px solid #ddd;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#container-botoes-modal div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#total-preco {
+    color: darkgreen;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
-.pedir{
-    background-color: lightgoldenrodyellow;
-    border-radius: 20%;
+.area-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-footer{
+#container-botoes-modal button {
+    flex: 1;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#botao-modal-fechar {
+    background-color: #bdc3c7;
+    color: #333;
+}
+
+#botao-modal-finalizar {
+    background-color: #27ae60;
+    color: white;
+}
+
+#botao-modal-finalizar:hover {
+    background-color: #219150;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
     margin-top: 40px;
-    border: solid 2px darkgreen;
+    border-top: solid 4px darkgreen;
     background-color: orange;
     text-align: center;
     padding: 20px;
     color: white;
+    font-weight: bold;
+}
+
+/* Estilos específicos para a página de contato */
+.form-container {
+    max-width: 550px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* Estado de Erro */
+.form-group input.invalid, 
+.form-group textarea.invalid {
+    border-color: #e74c3c;
+    background-color: #fff9f9;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+    height: 15px;
+}
+
+#btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#btn-enviar:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+}
+
+#sucesso-envio {
+    text-align: center;
+    padding: 20px;
+}
+
+#sucesso-envio h3 {
+    color: #27ae60;
 }
